@@ -1,0 +1,21 @@
+<h1>Bookings</h1>
+<table>
+<tr>
+    <th>Customer</th>
+    <th>Address</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th colspan="2"></th>
+    </tr>
+
+  <% @newbooking.each do |newbooking| %>
+  <tr>
+  <td><%= newbooking.customer.name %></td>
+  <td><%= newbooking.customer.address %></td>
+  <td><%= newbooking.date %></td>
+  <td><%= newbooking.time %></td>
+  <td><%= link_to 'Show', customer_path(newbooking.customer) %></td>
+  </tr>
+  <%end%>
+  </table>
+  <p><%= link_to 'Back', controller: 'homepage' %></p>

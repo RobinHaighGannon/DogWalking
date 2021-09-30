@@ -1,0 +1,27 @@
+<h1>Customer List</h1>
+<p>Click on 'show' next to a customer to add a pet or booking to their account</p>
+<%= link_to 'New customer', new_customer_path %>
+<table>
+<tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th colspan="2"></th>
+    </tr>
+
+  <% @customer.each do |customer| %>
+  <tr>
+  <td><%= customer.name %></td>
+  <td><%= customer.phone %></td>
+  <td><%= customer.email %></td>
+  <td><%= customer.address %></td>
+  <td><%= link_to 'Show', customer_path(customer) %></td>
+  <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+  <td><%= link_to 'Destroy', customer_path(customer),
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <%end%>
+  </table>
+  <p><%= link_to 'Back', controller: 'homepage' %></p>

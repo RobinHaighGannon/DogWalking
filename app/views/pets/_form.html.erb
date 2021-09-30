@@ -1,0 +1,15 @@
+<%= form_for([@customer, @customer.pets.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>

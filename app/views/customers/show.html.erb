@@ -1,0 +1,27 @@
+<h1>Customer</h1>
+<p>
+  <%= @customer.name %>
+</p>
+<p>
+<%=@customer.phone%>
+</p>
+<p>
+<%=@customer.address%>
+</p>
+<p>
+<%=@customer.email%>
+</p>
+
+<h2>Pets</h2>
+<%= render @customer.pets %>
+ 
+<h2>Add a pet:</h2>
+<%= render 'pets/form' %>
+
+<h2>Bookings</h2>
+<%= render @customer.newbookings %>
+<h2>Make a Booking:</h2>
+<%= render 'newbookings/form' %>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

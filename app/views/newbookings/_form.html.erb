@@ -1,0 +1,15 @@
+<%= form_for([@customer, @customer.newbookings.build]) do |f| %>
+ <p>
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </p>
+ 
+  <p>
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<%end%>

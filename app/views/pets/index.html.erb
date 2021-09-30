@@ -1,0 +1,19 @@
+<h1>Pet List</h1>
+<table>
+<tr>
+    <th>Name</th>
+    <th>Breed</th>
+    <th>Owner</th>
+    <th colspan="2"></th>
+    </tr>
+
+  <% @pet.each do |pet| %>
+  <tr>
+  <td><%= pet.name %></td>
+  <td><%= pet.breed %></td>
+  <td><%= pet.customer.name %></td>
+  <td><%= link_to 'Show', customer_path(pet.customer) %></td>
+  </tr>
+  <%end%>
+  </table>
+  <p><%= link_to 'Back', controller: 'homepage' %></p>

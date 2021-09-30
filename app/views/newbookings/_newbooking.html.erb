@@ -1,0 +1,14 @@
+<p>
+  <strong>Date:</strong>
+  <%= newbooking.date %>
+</p>
+ 
+<p>
+  <strong>Time:</strong>
+  <%= newbooking.time %>
+</p>
+ <p>
+  <%= link_to 'Delete Booking', [newbooking.customer, newbooking],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
