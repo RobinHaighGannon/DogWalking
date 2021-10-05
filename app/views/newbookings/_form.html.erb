@@ -1,15 +1,18 @@
-<%= form_for([@customer, @customer.newbookings.build]) do |f| %>
- <p>
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
-  </p>
- 
-  <p>
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<%end%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<form method = "post" action = "<%=customer_newbookings_path(customer_id: @customer.id)%>">
+ <label for="session">When (date and time):</label>
+<input type="datetime-local" id="session" name="session">
+<input type="submit" value = "Submit">
+</form>
+
+</html>

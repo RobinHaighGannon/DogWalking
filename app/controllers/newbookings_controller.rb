@@ -32,6 +32,6 @@ class NewbookingsController < ApplicationController
       end
     private
     def newbooking_params
-        params.require(:newbooking).permit(:date, :time)
+        params.require(:newbooking).permit(:datetime)
     end
 end
