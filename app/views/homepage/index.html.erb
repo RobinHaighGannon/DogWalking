@@ -1,6 +1,20 @@
-<h1>Homepage</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>Homepage</h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+<body>
 <p>To add new customers, pets or bookings, click on customers</p>
-<%= link_to 'Customers', controller: 'customers' %> |
-<%= link_to 'View Pets', controller: 'pets' %> |
-<%= link_to 'View Bookings', controller: 'newbookings' %>  
+<div class = "btn-group">
+<a href="/customers/index" class="btn btn-info" role="button">Customers</a>  
+<a href="/pets/index" class="btn btn-info" role="button">View Pets</a>
+<a href="/newbookings/index" class="btn btn-info" role="button">View Bookings</a>
+</div>
+</body>
+</html>
 

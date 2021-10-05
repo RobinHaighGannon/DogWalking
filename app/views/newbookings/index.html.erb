@@ -1,5 +1,14 @@
-<h1>Bookings</h1>
-<table>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>Bookings</h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+<table class = "table table-striped">
 <tr>
     <th>Customer</th>
     <th>Address</th>
@@ -18,4 +27,5 @@
   </tr>
   <%end%>
   </table>
-  <p><%= link_to 'Back', controller: 'homepage' %></p>
+  <a href = "/homepage/index" class = "btn" role = "button">back</a>
+  </html>

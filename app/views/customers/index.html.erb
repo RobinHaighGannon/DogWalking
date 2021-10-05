@@ -1,7 +1,17 @@
-<h1>Customer List</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>Customers</h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
 <p>Click on 'show' next to a customer to add a pet or booking to their account</p>
-<%= link_to 'New customer', new_customer_path %>
-<table>
+<a href="http://localhost:3000/customers/new" class="btn btn-success" role="button">New Customer</a>
+
+<table class = "table">
 <tr>
     <th>Name</th>
     <th>Phone</th>
@@ -19,11 +29,12 @@
   <td><%= customer.address %></td>
   <td><%= customer.postcode %></td>
   <td><%= link_to 'Show', customer_path(customer) %></td>
-  <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+  <td><%= link_to 'Edit', edit_customer_path(customer)%></td>
   <td><%= link_to 'Destroy', customer_path(customer),
   method: :delete,
   data: { confirm: 'Are you sure?' } %></td>
   </tr>
   <%end%>
   </table>
-  <p><%= link_to 'Back', controller: 'homepage' %></p>
+  <a href="http://localhost:3000/homepage/index" class="btn btn-default" role="button">Back</a>
+  </html>

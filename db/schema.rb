@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_152707) do
+ActiveRecord::Schema.define(version: 2021_10_05_104524) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "date"
@@ -31,14 +31,8 @@ ActiveRecord::Schema.define(version: 2021_09_30_152707) do
     t.string "postcode"
   end
 
-  create_table "newbookings", force: :cascade do |t|
-    t.string "date"
-    t.string "time"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "customer_id", null: false
-    t.index ["customer_id"], name: "index_newbookings_on_customer_id"
-  end
+# Could not dump table "newbookings" because of following StandardError
+#   Unknown type '' for column 'pet'
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
