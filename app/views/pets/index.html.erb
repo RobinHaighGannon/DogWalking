@@ -17,9 +17,9 @@
   <td><%= pet.name %></td>
   <td><%= pet.breed %></td>
   <td><%= pet.customer.name %></td>
-  <td><%= link_to 'Show', customer_path(pet.customer) %></td>
+  <td><a href= <%= customer_path(pet.customer) %> class = "btn btn-success">Show</a></td>
   </tr>
   <%end%>
   </table>
-  <p><%= link_to 'Back', controller: 'homepage' %></p>
+  <td><a href= "/homepage/index" class = "btn btn-default">Back</a></td>
   </html>
