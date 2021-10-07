@@ -1,6 +1,15 @@
-<h1>Customer</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>Customer</h1>
+  </head>
+<div class = "row">
+<div class="col-sm-4">
+<div class = "container">
+<h2>Customer Details</h2>
 <p>
-  <%= @customer.name %>
+  <%= @customer.name %> 
 </p>
 <p>
 <%=@customer.phone%>
@@ -14,16 +23,40 @@
 <p>
 <%=@customer.postcode%>
 </p>
+</div>
+</div>
+
+
+
+<div class="col-sm-4">
 <h2>Pets</h2>
 <%= render @customer.pets %>
- 
-<h2>Add a pet:</h2>
-<%= render 'pets/form' %>
 
+ </div>
+
+<div class="col-sm-4">
 <h2>Bookings</h2>
 <%= render @customer.newbookings %>
+</div>
+</div>
+
+<div class = "row">
+<div class="col-sm-4">
+ <%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
+</div>
+
+<div class="col-sm-4">
+<h2>Add a pet:</h2>
+<%= render 'pets/form' %>
+</div>
+
+<div class="col-sm-4">
 <h2>Make a Booking:</h2>
 <%= render 'newbookings/form' %>
+</div>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+</div>
+
+
+</html>
