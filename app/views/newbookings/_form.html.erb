@@ -9,10 +9,11 @@
 </head>
 
 
-<form method = "post" action = "<%=customer_newbookings_path(customer_id: @customer.id)%>">
- <label for="session">When (date and time):</label>
-<input type="datetime-local" id="session" name="session">
-<input type="submit" value = "Submit">
-</form>
+
+
+<%= form_for ([@customer, @customer.newbookings.build]) do |form| %>
+  <%= form.datetime_select :session %>
+  <%= form.submit %>
+<% end %>
 
 </html>
