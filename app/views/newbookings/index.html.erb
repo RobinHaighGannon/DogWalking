@@ -7,8 +7,7 @@
 <tr>
     <th>Customer</th>
     <th>Address</th>
-    <th>Date</th>
-    <th>Time</th>
+    <th>Session</th>
     <th colspan="2"></th>
     </tr>
 
@@ -16,11 +15,10 @@
   <tr>
   <td><%= newbooking.customer.name %></td>
   <td><%= newbooking.customer.address %></td>
-  <td><%= newbooking.date %></td>
-  <td><%= newbooking.time %></td>
-  <td><%= link_to 'Show', customer_path(newbooking.customer) %></td>
+  <td><%= newbooking.session %></td>
+  <td><a href= <%=customer_path(newbooking.customer) %> class = "btn btn-success">Show</a></td>
   </tr>
   <%end%>
   </table>
-  <a href = "/homepage/index" class = "btn" role = "button">back</a>
+  <a href = "/homepage/index" class = "btn btn-default" role = "button">Back</a>
   </html>
