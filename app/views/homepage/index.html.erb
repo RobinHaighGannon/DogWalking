@@ -1,6 +1,15 @@
-<h1>Homepage</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>Homepage</h1>
+  </head>
+<body>
 <p>To add new customers, pets or bookings, click on customers</p>
-<%= link_to 'Customers', controller: 'customers' %> |
-<%= link_to 'View Pets', controller: 'pets' %> |
-<%= link_to 'View Bookings', controller: 'newbookings' %>  
+<div class = "btn-group">
+<a href="/customers/index" class="btn btn-info" role="button">Customers</a>  
+<a href="/pets/index" class="btn btn-info" role="button">View Pets</a>
+<a href="/newbookings/index" class="btn btn-info" role="button">View Bookings</a>
+</div>
+</body>
+</html>
 
