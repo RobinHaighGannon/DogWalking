@@ -3,9 +3,11 @@
   <head>
     <h1>Bookings</h1>
   </head>
+
 <table class = "table table-striped">
 <tr>
     <th>Customer</th>
+    <th>Pet</th>
     <th>Address</th>
     <th>Session</th>
     <th colspan="2"></th>
@@ -13,10 +15,12 @@
 
   <% @newbooking.each do |newbooking| %>
   <tr>
-  <td><%= newbooking.customer.name %></td>
-  <td><%= newbooking.customer.address %></td>
+  <td><%= newbooking.pet.customer.name %></td>
+  <td><%= newbooking.pet.name %></td>
+  <td><%= newbooking.pet.customer.address %></td>
   <td><%= newbooking.session %></td>
-  <td><a href= <%=customer_path(newbooking.customer) %> class = "btn btn-success">Show</a></td>
+  
+
   </tr>
   <%end%>
   </table>

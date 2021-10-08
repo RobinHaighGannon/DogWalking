@@ -1,0 +1,9 @@
+<head>
+<h1>Make a Booking:</h1>
+</head>
+<body>
+<%= form_for [@customer, @pet, @newbooking] do |form| %>
+  <%= form.datetime_select :session %>
+  <%= form.submit %>
+<% end %>
+</body>

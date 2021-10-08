@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 </head>
-<%= form_for ([@customer, @customer.newbookings.build]) do |form| %>
+<%= form_for([@newbookings]) do |form| %>
   <%= form.datetime_select :session %>
   <%= form.submit %>
 <% end %>

@@ -1,3 +1,3 @@
-class Newbooking < ApplicationRecord
-  belongs_to :customer
+class Newbooking < ActiveRecord::Base
+  belongs_to :pet
 end
