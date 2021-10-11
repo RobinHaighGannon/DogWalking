@@ -1,3 +1,4 @@
+# contains all of the methods for the customer class
 class CustomersController < ApplicationController
   def index
     @customer = Customer.all

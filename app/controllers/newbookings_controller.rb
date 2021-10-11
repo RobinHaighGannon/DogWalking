@@ -1,3 +1,4 @@
+# contains all of the methods for the newbookings class
 class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
