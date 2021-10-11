@@ -1,4 +1,5 @@
 class NewbookingsController < ApplicationController
+    before_action :find_customer_and_pet, only: [:new, :create]
     def index
         @newbooking = Newbooking.all
     end
@@ -6,13 +7,9 @@ class NewbookingsController < ApplicationController
         @newbooking = Newbooking.find(params[:id])
       end
     def new
-        @customer = Customer.find(params[:customer_id])
-        @pet = Pet.find(params[:pet_id])
         @newbooking = @pet.newbookings.build
     end
     def create
-        @customer = Customer.find(params[:customer_id])
-        @pet = Pet.find(params[:pet_id])
         @newbooking = @pet.newbookings.create(newbooking_params)
         redirect_to customer_pet_path(@customer, @pet)
     end
@@ -36,5 +33,9 @@ class NewbookingsController < ApplicationController
     private
     def newbooking_params
         params.require(:newbooking).permit(:session)
+    end
+    def find_customer_and_pet
+        @customer = Customer.find(params[:customer_id])
+        @pet = Pet.find(params[:pet_id])
     end
 end
