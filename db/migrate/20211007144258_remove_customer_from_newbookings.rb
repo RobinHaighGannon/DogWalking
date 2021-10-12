@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # the migration used to remove the customers column from the newbookings table
 class RemoveCustomerFromNewbookings < ActiveRecord::Migration[6.1]
   def change

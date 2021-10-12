@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # the migration used to create the customers table
 class CreateCustomers < ActiveRecord::Migration[6.1]
   def change

@@ -19,7 +19,7 @@
   <td><%= newbooking.pet.name %></td>
   <td><%= newbooking.pet.customer.address %></td>
   <td><%= newbooking.session %></td>
-  
+  <td><%= link_to 'Delete Booking', newbooking_path(newbooking), method: :delete, data: 'Are you sure?'%>
 
   </tr>
   <%end%>

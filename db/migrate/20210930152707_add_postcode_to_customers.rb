@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # the migration used to add a postcode column to the customers table
 class AddPostcodeToCustomers < ActiveRecord::Migration[6.1]
   def change

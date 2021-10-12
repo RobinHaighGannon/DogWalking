@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # the migration used to add a pets column to the newbookings table
 class AddPetsToNewbookings < ActiveRecord::Migration[6.1]
   def change

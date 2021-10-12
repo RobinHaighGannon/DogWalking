@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 Spring.watch(
   '.ruby-version',
   '.rbenv-vars',

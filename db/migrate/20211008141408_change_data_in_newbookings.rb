@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # the migration used to update the pet ID in one of the bookings in the newbookings table
 class ChangeDataInNewbookings < ActiveRecord::Migration[6.1]
   def change

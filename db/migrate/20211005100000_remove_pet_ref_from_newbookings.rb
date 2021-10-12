@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # the migration used to remove the pets column from the newbookings table
 class RemovePetRefFromNewbookings < ActiveRecord::Migration[6.1]
   def change
