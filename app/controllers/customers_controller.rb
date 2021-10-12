@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # contains all of the methods for the customer class
 class CustomersController < ApplicationController
   def index
