@@ -1,4 +1,5 @@
 class NewbookingsController < ApplicationController
+    before_action :find_customer_and_pet, only: [:new, :create]
     def index
         @newbooking = Newbooking.all
     end
@@ -6,18 +7,17 @@ class NewbookingsController < ApplicationController
         @newbooking = Newbooking.find(params[:id])
       end
     def new
-        @newbooking = Newbooking.new
+        @newbooking = @pet.newbookings.build
     end
     def create
-        @customer = Customer.find(params[:customer_id])
-        @newbooking = @customer.newbookings.create(newbooking_params)
-        redirect_to customer_path(@customer)
+        @newbooking = @pet.newbookings.create(newbooking_params)
+        redirect_to customer_pet_path(@customer, @pet)
     end
     def edit
         @newbooking = Newbooking.find(params[:id])
     end
     def update
-        @newbooking = Newbooking.find(params[:id])
+        @pet = Pet.find(params[:pet_id])
         if @newbooking.update(newbooking_params)
             redirect_to @newbooking
         else
@@ -25,13 +25,17 @@ class NewbookingsController < ApplicationController
         end 
     end
     def destroy
-        @customer = Customer.find(params[:customer_id])
-        @newbooking = @customer.newbookings.find(params[:id])
+        @newbooking = Newbooking.find(params[:id])
+        @pet = @newbooking.pet
         @newbooking.destroy
-        redirect_to customer_path(@customer)
+        redirect_to customer_pet_path(@pet.customer, @pet)
       end
     private
     def newbooking_params
         params.require(:newbooking).permit(:session)
+    end
+    def find_customer_and_pet
+        @customer = Customer.find(params[:customer_id])
+        @pet = Pet.find(params[:pet_id])
     end
 end

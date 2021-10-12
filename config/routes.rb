@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :customers do
-    resources :pets 
-    resources :newbookings
+    resources :pets do
+      resources :newbookings, shallow: true
+    end
   end
  
 

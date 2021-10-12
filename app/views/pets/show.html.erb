@@ -1,0 +1,33 @@
+<head>
+<h1>Pet</h1>
+</head>
+<div class = "row">
+<div class = "col-sm-4">
+<h2>Pet Details</h2>
+<p>
+<%= @pet.name %> 
+</p>
+<p>
+<%= @pet.breed %>
+</p>
+</div>
+
+<div class="col-sm-4">
+<h2>Bookings:</h2>
+<%= render @pet.newbookings %>
+</div>
+
+
+<div class = "col-sm-4">
+<h2>Make a Booking:</h2>
+  <%= link_to 'New Booking', new_customer_pet_newbooking_path(@pet.customer, @pet) %>
+</div>
+
+</div>
+
+<div class = "row">
+<div class = "col-sm-4">
+  <a href = <%= customer_path(@pet.customer) %> class = "btn btn-default">Back</a>
+</div>
+
+</div>

@@ -8,6 +8,7 @@
   <%= pet.breed %>
 </p>
  <p>
+ <%= link_to 'Show Pet', customer_pet_path(pet.customer, pet)%> |
   <%= link_to 'Delete Pet', [pet.customer, pet],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>

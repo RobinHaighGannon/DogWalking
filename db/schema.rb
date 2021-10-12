@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_130109) do
+ActiveRecord::Schema.define(version: 2021_10_08_141408) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "date"
@@ -44,6 +44,6 @@ ActiveRecord::Schema.define(version: 2021_10_05_130109) do
   end
 
   add_foreign_key "bookings", "pets"
-  add_foreign_key "newbookings", "customers"
+  add_foreign_key "newbookings", "pets"
   add_foreign_key "pets", "customers"
 end
