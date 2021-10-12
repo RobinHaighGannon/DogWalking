@@ -35,7 +35,7 @@ class NewbookingsController < ApplicationController
     @newbooking = Newbooking.find(params[:id])
     @pet = @newbooking.pet
     @newbooking.destroy
-    redirect_to customer_pet_path(@pet.customer, @pet)
+    redirect_to newbookings_index_path
   end
 
   private
