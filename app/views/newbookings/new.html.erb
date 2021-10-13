@@ -4,6 +4,9 @@
 <body>
 <%= form_for [@customer, @pet, @newbooking] do |form| %>
   <%= form.datetime_select :session %>
+  <p>
+  <%= form.collection_select(:service_id, Service.all, :id, :name, :prompt => 'Select') %>
+  </p>
   <%= form.submit %>
 <% end %>
 </body>

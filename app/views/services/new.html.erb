@@ -1,0 +1,20 @@
+<head>
+<h1>Services</h1>
+</head>
+<%= form_for @service do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>
+  <td><a href= <%= services_path %> class = "btn btn-default">Back</a></td>
+  

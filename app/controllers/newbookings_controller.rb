@@ -32,7 +32,7 @@ class NewbookingsController < ApplicationController
       end
     private
     def newbooking_params
-        params.require(:newbooking).permit(:session)
+        params.require(:newbooking).permit(:session, :service_id)
     end
     def find_customer_and_pet
         @customer = Customer.find(params[:customer_id])

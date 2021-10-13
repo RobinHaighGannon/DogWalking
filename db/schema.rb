@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_141408) do
+ActiveRecord::Schema.define(version: 2021_10_12_155101) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "date"
@@ -43,7 +43,15 @@ ActiveRecord::Schema.define(version: 2021_10_08_141408) do
     t.index ["customer_id"], name: "index_pets_on_customer_id"
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "bookings", "pets"
   add_foreign_key "newbookings", "pets"
+  add_foreign_key "newbookings", "services"
   add_foreign_key "pets", "customers"
 end
