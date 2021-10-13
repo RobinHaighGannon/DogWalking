@@ -1,3 +1,3 @@
 module NewbookingsHelper
-    include DropDownOptions
+  include DropDownOptions
 end
