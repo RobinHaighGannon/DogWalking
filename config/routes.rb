@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 Rails.application.routes.draw do
   get 'newbookings/index'
   get 'customers/index'
@@ -11,7 +13,6 @@ Rails.application.routes.draw do
       resources :newbookings, shallow: true
     end
   end
- 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

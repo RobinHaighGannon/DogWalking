@@ -20,14 +20,17 @@
 
 <div class = "col-sm-4">
 <h2>Make a Booking:</h2>
-  <%= link_to 'New Booking', new_customer_pet_newbooking_path(@pet.customer, @pet) %>
+  <a href = <%= new_customer_pet_newbooking_path(@pet.customer, @pet) %> class = "btn btn-success">New Booking</a>
 </div>
 
 </div>
 
 <div class = "row">
 <div class = "col-sm-4">
-  <a href = <%= customer_path(@pet.customer) %> class = "btn btn-default">Back</a>
+<div class = "btn-group">
+  <a href = <%= customer_path(@pet.customer) %> class = "btn btn-default">Owner Info</a>
+  <a href = <%= newbookings_index_path %> class = "btn btn-default">All Bookings</a>
+  <a href = <%= pets_index_path %> class = "btn btn-default">All Pets</a>
 </div>
-
+</div>
 </div>

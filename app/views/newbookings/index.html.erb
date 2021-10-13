@@ -19,10 +19,12 @@
   <td><%= newbooking.pet.name %></td>
   <td><%= newbooking.pet.customer.address %></td>
   <td><%= newbooking.session %></td>
-  
+  <td><%= link_to 'Destroy', newbooking_path(newbooking),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
 
   </tr>
   <%end%>
   </table>
-  <a href = "/homepage/index" class = "btn btn-default" role = "button">Back</a>
+  <a href = <%= homepage_index_path %> class = "btn btn-default" role = "button">Homepage</a>
   </html>
