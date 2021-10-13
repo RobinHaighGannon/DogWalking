@@ -6,7 +6,6 @@
 <tr>
     <th>Name</th>
     <th>Price</th>
-    <th>ID</th>
     <th colspan="2"></th>
     </tr>
 
@@ -14,7 +13,6 @@
   <tr>
   <td><%= service.name %></td>
   <td><%= service.price %></td>
-  <td><%= service.id %></td>
   <td><%= link_to 'Destroy', service_path(service),
                method: :delete,
                data: { confirm: 'Are you sure?' } %></td>
