@@ -9,8 +9,9 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
+# frozen_string_literal: false
 
-ActiveRecord::Schema.define(version: 20_211_012_155_101) do
+ActiveRecord::Schema.define(version: 20_211_008_141_408) do
   create_table 'bookings', force: :cascade do |t|
     t.string 'date'
     t.string 'time'

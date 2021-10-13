@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# contains all of the methods for the pet class
 class PetsController < ApplicationController
   def index
     @pet = Pet.all

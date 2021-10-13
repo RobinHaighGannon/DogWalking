@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# contains all of the methods for the newbookings class
 class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
@@ -34,7 +37,7 @@ class NewbookingsController < ApplicationController
     @newbooking = Newbooking.find(params[:id])
     @pet = @newbooking.pet
     @newbooking.destroy
-    redirect_to customer_pet_path(@pet.customer, @pet)
+    redirect_to newbookings_index_path
   end
 
   private

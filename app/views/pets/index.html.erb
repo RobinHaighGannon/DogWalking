@@ -17,9 +17,10 @@
   <td><%= pet.name %></td>
   <td><%= pet.breed %></td>
   <td><%= pet.customer.name %></td>
-  <td><a href= <%= customer_path(pet.customer) %> class = "btn btn-success">Show</a></td>
+  <td><a href= <%= customer_path(pet.customer) %> class = "btn btn-info">Customer Info</a></td>
+  <td><a href= <%= customer_pet_path(pet.customer, pet) %> class = "btn btn-success">Make Booking</a></td>
   </tr>
   <%end%>
   </table>
-  <td><a href= <%= homepage_index_path %> class = "btn btn-default">Back</a></td>
+  <td><a href= <%= homepage_index_path %> class = "btn btn-default">Homepage</a></td>
   </html>
