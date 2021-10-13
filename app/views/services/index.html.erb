@@ -1,12 +1,12 @@
 <head>
     <h1>Services List</h1>
   </head>
-<td><a href= <%= new_service_path %> class = "btn btn-success">New Service</a></td>
+<td><a href = <%= new_service_path %> class = "btn btn-success">New Service</a></td>
 <table class = "table table-striped">
 <tr>
     <th>Name</th>
     <th>Price</th>
-    <th colspan="2"></th>
+    <th colspan = "2"></th>
     </tr>
 
   <% @service.each do |service| %>
@@ -17,5 +17,5 @@
   </tr>
   <%end%>
   </table>
-  <td><a href= <%= homepage_index_path %> class = "btn btn-default">Back</a></td>
+  <td><a href = <%= homepage_index_path %> class = "btn btn-default">Back</a></td>
   
