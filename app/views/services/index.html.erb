@@ -1,7 +1,7 @@
 <head>
     <h1>Services List</h1>
   </head>
-<td><a href = <%= new_service_path %> class = "btn btn-success">New Service</a></td>
+<td><a href = "<%= new_service_path %>" class = "btn btn-success">New Service</a></td>
 <table class = "table table-striped">
 <tr>
     <th>Name</th>
@@ -13,9 +13,9 @@
   <tr>
   <td><%= service.name %></td>
   <td><%= service.price %></td>
-  <td><a href= <%= edit_service_path(service) %> class = "btn btn-warning">Edit</a></td>
+  <td><a href = "<%= edit_service_path(service) %>" class = "btn btn-warning">Edit</a></td>
   </tr>
   <%end%>
   </table>
-  <td><a href = <%= homepage_index_path %> class = "btn btn-default">Back</a></td>
+  <td><a href = "<%= homepage_index_path %>" class = "btn btn-default">Back</a></td>
   

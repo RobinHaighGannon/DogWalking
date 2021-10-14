@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
   <head>
     <h1>Pet List</h1>
   </head>
@@ -9,7 +9,7 @@
     <th>Name</th>
     <th>Breed</th>
     <th>Owner</th>
-    <th colspan="2"></th>
+    <th colspan = "2"></th>
     </tr>
 
   <% @pet.each do |pet| %>
@@ -17,10 +17,10 @@
   <td><%= pet.name %></td>
   <td><%= pet.breed %></td>
   <td><%= pet.customer.name %></td>
-  <td><a href= <%= customer_path(pet.customer) %> class = "btn btn-info">Customer Info</a></td>
-  <td><a href= <%= customer_pet_path(pet.customer, pet) %> class = "btn btn-success">Make Booking</a></td>
+  <td><a href= "<%= customer_path(pet.customer) %>" class = "btn btn-info">Customer Info</a></td>
+  <td><a href= "<%= customer_pet_path(pet.customer, pet) %>" class = "btn btn-success">Make Booking</a></td>
   </tr>
   <%end%>
   </table>
-  <td><a href= <%= homepage_index_path %> class = "btn btn-default">Homepage</a></td>
+  <td><a href= "<%= homepage_index_path %>" class = "btn btn-default">Homepage</a></td>
   </html>

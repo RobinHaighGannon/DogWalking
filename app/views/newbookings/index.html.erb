@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
   <head>
     <h1>Bookings</h1>
   </head>
@@ -12,7 +12,7 @@
     <th>Session</th>
     <th>Service</th>
     <th>Price</th>
-    <th colspan="2"></th>
+    <th colspan = "2"></th>
     </tr>
 
   <% @newbooking.each do |newbooking| %>
@@ -26,5 +26,5 @@
   </tr>
   <%end%>
   </table>
-  <a href = <%= homepage_index_path %> class = "btn btn-default" role = "button">Homepage</a>
+  <a href = "<%= homepage_index_path %>" class = "btn btn-default" role = "button">Homepage</a>
   </html>
