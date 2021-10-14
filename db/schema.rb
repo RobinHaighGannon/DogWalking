@@ -11,6 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 # frozen_string_literal: false
 
+# The schema cannot be made any shorter
+# rubocop:disable Metrics/BlockLength
 ActiveRecord::Schema.define(version: 20_211_008_141_408) do
   create_table 'bookings', force: :cascade do |t|
     t.string 'date'
@@ -55,3 +57,4 @@ ActiveRecord::Schema.define(version: 20_211_008_141_408) do
   add_foreign_key 'newbookings', 'services'
   add_foreign_key 'pets', 'customers'
 end
+# rubocop:enable Metrics/BlockLength

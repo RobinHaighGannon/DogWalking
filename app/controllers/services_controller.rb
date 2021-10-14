@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Contains all of the methods for the Service class
 class ServicesController < ApplicationController
   def index
     @service = Service.all

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# The migration used to create the services table
 class CreateServices < ActiveRecord::Migration[6.1]
   def change
     create_table :services do |t|

@@ -1,0 +1,10 @@
+AllCops:
+  NewCops: enable
+
+Metrics:
+  Exclude:
+    - bin/*
+
+Layout:
+  Exclude:
+    - bin/*
