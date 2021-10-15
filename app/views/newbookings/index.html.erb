@@ -22,7 +22,7 @@
   <td><%= newbooking.pet.name %></td>
   <td><%= newbooking.pet.customer.address %></td>
   <td><%= newbooking.date %></td>
-  <td><%= newbooking.time %></td>
+  <td><%= newbooking.time.strftime("%k:%M") %></td>
   <td><%= newbooking.service.name %></td>
   <td><%= newbooking.service.price %></td>
   </tr>
