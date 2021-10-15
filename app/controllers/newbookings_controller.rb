@@ -43,7 +43,7 @@ class NewbookingsController < ApplicationController
   private
 
   def newbooking_params
-    params.require(:newbooking).permit(:session, :service_id)
+    params.require(:newbooking).permit(:date, :time, :service_id)
   end
 
   def find_customer_and_pet

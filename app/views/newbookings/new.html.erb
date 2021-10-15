@@ -3,11 +3,16 @@
 </head>
 <body>
 <%= form_for [@customer, @pet, @newbooking] do |form| %>
-  <%= form.datetime_select :session %>
-  <p>
-  <%= form.collection_select(:service_id, Service.all, :id, :name, prompt: 'Select') %>
-  </p>
-  <%= form.submit %>
+<label for="date">Date:</label>
+<%= form.date_field :date %>
+<label for="time">Time:</label>
+<%= form.time_field :time %>
+<p>
+<label for="service">Service:</label>
+<%= form.collection_select(:service_id, Service.all, :id, :name, prompt: 'Select') %></p>
+<p>
+<%= form.submit %>
+</p>
 <% end %>
 <p>
 <a href = "<%= customer_pet_path(@pet.customer, @pet) %>" class = "btn btn-default">Back</a>
