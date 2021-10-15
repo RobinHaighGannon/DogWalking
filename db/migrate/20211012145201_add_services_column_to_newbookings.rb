@@ -2,7 +2,9 @@
 
 # The migration used to add a reference to services in the newbookings table
 class AddServicesColumnToNewbookings < ActiveRecord::Migration[6.1]
+  # Temporary class to hold service data
   class Service20211012145201 < ActiveRecord::Base
+    self.table_name = 'services'
     has_many :newbookings, class_name: 'newbooking', foreign_key: 'newbooking_id'
   end
 
