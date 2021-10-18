@@ -13,13 +13,12 @@ class ConvertDateTimeInNewbookings < ActiveRecord::Migration[6.1]
   def change
     newbooking = Newbooking20211014143555.all
     newbooking.each do |booking|
-      begin
-        date = booking.session.to_date
-        time = booking.session.to_time
-        booking.update!(date: date, time: time)
-      rescue StandardError
-        puts booking.session
-      end
+      date = booking.session.to_date
+      time = booking.session.to_time
+      booking.update!(date: date, time: time)
+    rescue StandardError => e
+      puts booking.session
+      raise e
     end
   end
 end
