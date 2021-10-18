@@ -4,11 +4,7 @@
 class HomepageController < ApplicationController
   def index
     @newbooking = Newbooking.all
-    @totalmoney = 0
-    @totalbookings = 0
-    @newbooking.each do |newbooking|
-      @totalmoney += newbooking.service.price
-      @totalbookings += 1
-    end
+    @totalbookings = @newbooking.size
+    @totalmoney = @newbooking.reduce(0) { |sum, booking| sum + booking.service.price }
   end
 end
