@@ -4,7 +4,7 @@
 class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
-    @newbooking = Newbooking.all
+    @newbooking = Newbooking.all.includes(:pet, :service)
   end
 
   def show
@@ -43,7 +43,7 @@ class NewbookingsController < ApplicationController
   private
 
   def newbooking_params
-    params.require(:newbooking).permit(:session)
+    params.require(:newbooking).permit(:session, :service_id)
   end
 
   def find_customer_and_pet

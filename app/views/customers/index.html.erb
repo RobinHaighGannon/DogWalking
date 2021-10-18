@@ -23,8 +23,8 @@
   <td><%= customer.email %></td>
   <td><%= customer.address %></td>
   <td><%= customer.postcode %></td>
-  <td><a href= <%= customer_path(customer) %> class = "btn btn-success">Show</a></td>
-  <td><a href= <%= edit_customer_path(customer) %> class = "btn btn-warning">Edit</a></td>
+  <td><a href= "<%= customer_path(customer) %>" class = "btn btn-success">Show</a></td>
+  <td><a href= "<%= edit_customer_path(customer) %>" class = "btn btn-warning">Edit</a></td>
   <td><%= link_to 'Destroy', customer_path(customer),
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
@@ -32,5 +32,5 @@
   </tr>
   <%end%>
   </table>
-  <a href="/homepage/index" class="btn btn-default" role="button">Back</a>
+  <a href = "<%= homepage_index_path %>" class="btn btn-default" role="button">Back</a>
   </html>

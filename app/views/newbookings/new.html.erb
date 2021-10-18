@@ -4,10 +4,13 @@
 <body>
 <%= form_for [@customer, @pet, @newbooking] do |form| %>
   <%= form.datetime_select :session %>
+  <p>
+  <%= form.collection_select(:service_id, Service.all, :id, :name, prompt: 'Select') %>
+  </p>
   <%= form.submit %>
 <% end %>
 <p>
-<a href = <%= customer_pet_path(@pet.customer, @pet) %> class = "btn btn-default">Back</a>
+<a href = "<%= customer_pet_path(@pet.customer, @pet) %>" class = "btn btn-default">Back</a>
 </p>
 
 </body>
