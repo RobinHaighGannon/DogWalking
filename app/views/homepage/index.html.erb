@@ -4,6 +4,8 @@
     <h1>Homepage</h1>
   </head>
 <body>
+<div class = "row">
+<div class = "col-sm-6">
 <p>To add new customers, pets or bookings, click on customers</p>
 <div class = "btn-group">
 <a href = "<%= customers_index_path %>" class = "btn btn-info" role = "button">Customers</a>  
@@ -11,6 +13,14 @@
 <a href = "<%= newbookings_index_path %>" class = "btn btn-info" role = "button">View Bookings</a>
 <a href = "<%= services_path %>" class = "btn btn-info" role = "button">View Services</a>
 </div>
+</div>
 </body>
+<div class = "col-sm-6">
+<h1>Stats</h1>
+<h3>Total Outstanding Money Owed: £<%= @totalmoney %></h3>
+
+<h3>Total Number Of Bookings: <%= @totalbookings %></h3>
+</div>
+</div>
 </html>
 

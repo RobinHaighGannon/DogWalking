@@ -23,6 +23,10 @@
   <td><%= newbooking.session %></td>
   <td><%= newbooking.service.name %></td>
   <td><%= newbooking.service.price %></td>
+  <td><%= link_to 'Destroy', newbooking_path(newbooking),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+               </td>
   </tr>
   <%end%>
   </table>
