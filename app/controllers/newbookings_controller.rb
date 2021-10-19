@@ -5,6 +5,11 @@ class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
     @newbooking = Newbooking.all.includes(:pet, :service)
+    if params[:order] && params[:order] == 'Customer Name'
+      sort_by_name
+    elsif params[:order] && params[:order] == 'Date'
+      sort_by_date
+    end
   end
 
   def show
@@ -38,6 +43,14 @@ class NewbookingsController < ApplicationController
     @pet = @newbooking.pet
     @newbooking.destroy
     redirect_to newbookings_index_path
+  end
+
+  def sort_by_date
+    @newbooking = @newbooking.sort_by(&:date)
+  end
+
+  def sort_by_name
+    @newbooking = @newbooking.sort_by { |obj| obj.pet.customer.name }
   end
 
   private
