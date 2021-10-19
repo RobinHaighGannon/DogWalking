@@ -13,6 +13,8 @@
     <th>Time</th>
     <th>Service</th>
     <th>Price</th>
+    <th>Paid?</th>
+    <th>Completed?</th>
     <th colspan = "2"></th>
     </tr>
 
@@ -25,6 +27,8 @@
   <td><%= newbooking.time.strftime("%k:%M") %></td>
   <td><%= newbooking.service.name %></td>
   <td><%= newbooking.service.price %></td>
+  <td><%= newbooking.paid %></td>
+  <td><%= newbooking.complete %></td>
   <td><%= link_to 'Destroy', newbooking_path(newbooking),
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
