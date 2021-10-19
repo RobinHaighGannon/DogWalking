@@ -9,7 +9,8 @@
     <th>Customer</th>
     <th>Pet</th>
     <th>Address</th>
-    <th>Session</th>
+    <th>Date</th>
+    <th>Time</th>
     <th>Service</th>
     <th>Price</th>
     <th colspan = "2"></th>
@@ -20,7 +21,8 @@
   <td><%= newbooking.pet.customer.name %></td>
   <td><%= newbooking.pet.name %></td>
   <td><%= newbooking.pet.customer.address %></td>
-  <td><%= newbooking.session %></td>
+  <td><%= newbooking.date %></td>
+  <td><%= newbooking.time.strftime("%k:%M") %></td>
   <td><%= newbooking.service.name %></td>
   <td><%= newbooking.service.price %></td>
   <td><%= link_to 'Destroy', newbooking_path(newbooking),
