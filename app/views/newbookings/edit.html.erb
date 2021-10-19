@@ -1,0 +1,20 @@
+<h1>Edit a Booking:</h1>
+<%= form_for @newbooking do |form| %>
+<label for="date">Date:</label>
+<%= form.date_field :date %>
+<label for="time">Time:</label>
+<%= form.time_field :time %>
+<p>
+<label for="service">Service:</label>
+<%= form.collection_select(:service_id, Service.all, :id, :name, prompt: 'Select') %></p>
+<p>
+<%= form.check_box(:paid) %>
+<%= label_tag(:paid, "This booking has been paid for") %></p>
+<p>
+<%= form.check_box(:complete) %>
+<%= label_tag(:complete, "This walk has been completed") %></p>
+<%= form.submit %>
+<% end %>
+<p>
+<a href = "<%= newbookings_index_path %>" class = "btn btn-default">Back</a>
+</p>

@@ -25,9 +25,9 @@ class NewbookingsController < ApplicationController
   end
 
   def update
-    @pet = Pet.find(params[:pet_id])
+    @newbooking = Newbooking.find(params[:id])
     if @newbooking.update(newbooking_params)
-      redirect_to @newbooking
+      redirect_to newbookings_index_path
     else
       render 'edit'
     end
@@ -43,7 +43,7 @@ class NewbookingsController < ApplicationController
   private
 
   def newbooking_params
-    params.require(:newbooking).permit(:date, :time, :service_id)
+    params.require(:newbooking).permit(:date, :time, :service_id, :paid, :complete)
   end
 
   def find_customer_and_pet
