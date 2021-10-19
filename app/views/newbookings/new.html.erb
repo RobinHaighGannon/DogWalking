@@ -11,6 +11,11 @@
 <label for="service">Service:</label>
 <%= form.collection_select(:service_id, Service.all, :id, :name, prompt: 'Select') %></p>
 <p>
+<%= form.check_box(:paid) %>
+<%= label_tag(:paid, "This booking has been paid for") %></p>
+<p>
+<%= form.check_box(:complete) %>
+<%= label_tag(:complete, "This walk has been completed") %></p>
 <%= form.submit %>
 </p>
 <% end %>
