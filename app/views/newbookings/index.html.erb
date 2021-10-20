@@ -26,7 +26,7 @@
   <td><%= newbooking.date %></td>
   <td><%= newbooking.time.strftime("%k:%M") %></td>
   <td><%= newbooking.service.name %></td>
-  <td><%= newbooking.service.price %></td>
+  <td><%= number_to_currency(newbooking.service.price, :unit => "£") %></td>
   <td><%= newbooking.paid %></td>
   <td><%= newbooking.complete %></td>
   <td><%= link_to 'Destroy', newbooking_path(newbooking),
