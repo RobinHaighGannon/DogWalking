@@ -4,7 +4,7 @@
 class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
-    @newbooking = Newbooking.all.includes(:pet, :service)
+    @newbooking = Newbooking.paginate(page: params[:page], per_page: 5)
   end
 
   def show
