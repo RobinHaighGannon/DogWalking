@@ -5,9 +5,10 @@ class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
     @newbooking = Newbooking.all.includes(:pet, :service)
-    if params[:order] && params[:order] == 'Customer Name'
+    case params[:order]
+    when 'Customer Name'
       sort_by_name
-    elsif params[:order] && params[:order] == 'Date'
+    when 'Date'
       sort_by_date
     end
   end
