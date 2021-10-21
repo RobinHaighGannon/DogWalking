@@ -13,6 +13,29 @@
 <a href = '<%= newbookings_index_path %>' class = 'btn btn-info' role = 'button'>View Bookings</a>
 <a href = '<%= services_path %>' class = 'btn btn-info' role = 'button'>View Services</a>
 </div>
+<h2>Today's Bookings</h2>
+<table class = "table table-striped">
+<tr>
+    <th>Customer</th>
+    <th>Pet</th>
+    <th>Address</th>
+    <th>Time</th>
+    <th>Service</th>
+    <th>Price</th>
+    <th colspan = "2"></th>
+    </tr>
+
+  <% @todaysbookings.each do |newbooking| %>
+  <tr>
+  <td><%= newbooking.pet.customer.name %></td>
+  <td><%= newbooking.pet.name %></td>
+  <td><%= newbooking.pet.customer.address %></td>
+  <td><%= newbooking.time.strftime("%k:%M") %></td>
+  <td><%= newbooking.service.name %></td>
+  <td><%= number_to_currency(newbooking.service.price, :unit => "£") %></td>
+  </tr>
+  <%end%>
+  </table>
 </div>
 </body>
 <div class = 'col-sm-6'>

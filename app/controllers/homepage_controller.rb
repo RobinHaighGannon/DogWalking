@@ -7,6 +7,7 @@ class HomepageController < ApplicationController
   def index
     newbooking = Newbooking.all
     @totalbookings = newbooking.size
+    @todaysbookings = newbooking.where(date: Date.today)
     hsh = Hash.new { |h, k| h[k] = 0 }
     newbooking.each_with_object(hsh) do |booking, h|
       h[:settled] += booking.service.price if booking.settled?
