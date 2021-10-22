@@ -16,12 +16,13 @@ class HomepageController < ApplicationController
 
   def calculate_money(newbooking)
     newbooking.each_with_object(Hash.new { |h, k| h[k] = 0 }) do |booking, h|
+      price = booking.service.price
       if booking.settled?
-        h[:settled] += booking.service.price
+        h[:settled] += price
       elsif booking.payment_due?
-        h[:due] += booking.service.price
+        h[:due] += price
       else
-        h[:incomplete] += booking.service.price
+        h[:incomplete] += price
       end
     end
   end
