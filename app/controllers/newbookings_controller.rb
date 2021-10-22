@@ -11,7 +11,7 @@ class NewbookingsController < ApplicationController
     when 'Date'
       sort_by_date
     end
-    @newbooking = Newbooking.paginate(page: params[:page], per_page: 5)
+    @newbooking = @newbooking.paginate(page: params[:page], per_page: 5)
   end
 
   def show
