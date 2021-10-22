@@ -42,9 +42,9 @@
 <h1>Statistics:</h1>
 <h3>Total Number Of Bookings: <%= @totalbookings %></h3>
 <h2>Value Of:</h2>
-<h3>Incomplete bookings: <%= number_to_currency(@incomplete, unit: '£') %></h3>
-<h3>Due Payments: <%= number_to_currency(@due, unit: '£') %></h3>
-<h3>Settled Payments: <%= number_to_currency(@settled, unit: '£') %></h3>
+<h3>Incomplete bookings: <%= number_to_currency(@money_totals[:incomplete], unit: '£') %></h3>
+<h3>Due Payments: <%= number_to_currency(@money_totals[:due], unit: '£') %></h3>
+<h3>Settled Payments: <%= number_to_currency(@money_totals[:settled], unit: '£') %></h3>
 
 </div>
 </div>

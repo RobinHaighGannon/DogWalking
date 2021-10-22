@@ -2,30 +2,22 @@
 
 # contains all of the methods for the homepage
 class HomepageController < ApplicationController
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def index
-    newbooking = Newbooking.all
+    newbooking = Newbooking.all.includes(:service, :pet)
     @totalbookings = newbooking.size
     @todaysbookings = newbooking.where(date: Date.today)
     hsh = Hash.new { |h, k| h[k] = 0 }
+    calculate_money(hsh, newbooking)
+    @money_totals = hsh
+  end
+
+  private
+
+  def calculate_money(hsh, newbooking)
     newbooking.each_with_object(hsh) do |booking, h|
       h[:settled] += booking.service.price if booking.settled?
       h[:due] += booking.service.price if booking.payment_due?
       h[:incomplete] += booking.service.price unless booking.complete?
-    end
-    @settled = hsh[:settled]
-    @due = hsh[:due]
-    @incomplete = hsh[:incomplete]
-  end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
-
-  private
-
-  def calculate_total(array)
-    array.reduce(0) do |sum, booking|
-      sum + booking.service.price
     end
   end
 end
