@@ -47,11 +47,12 @@ class NewbookingsController < ApplicationController
   end
 
   def sort_by_date
-    @newbooking = @newbooking.sort_by(&:date)
+    @newbooking = Newbooking.all.includes(:pet, :service).order(:date)
   end
 
   def sort_by_name
-    @newbooking = @newbooking.sort_by { |obj| obj.pet.customer.name }
+    @newbooking = Newbooking.all.includes(:pet,
+                                          :service).joins(:pet).merge(Pet.joins(:customer).order('customers.name'))
   end
 
   private
