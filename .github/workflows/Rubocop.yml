@@ -10,7 +10,7 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v2
     - name: Rubocop Linter Action
-      uses: andrewmcodes/rubocop-linter-action@v3.0.0.rc2
+      uses: andrewmcodes/rubocop-linter-action@v3.3.0
       with:
         exit_on_failure: true
       env:
