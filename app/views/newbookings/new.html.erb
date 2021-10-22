@@ -1,5 +1,5 @@
 <head>
-<h1>Make a Booking:</h1>
+<h1>Make a Booking For: <%= @pet.name %></h1>
 </head>
 <body>
 <%= form_for [@customer, @pet, @newbooking] do |form| %>
