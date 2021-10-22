@@ -5,6 +5,12 @@ class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
     @newbooking = Newbooking.all.includes(:pet, :service)
+    case params[:order]
+    when 'Customer Name'
+      sort_by_name
+    when 'Date'
+      sort_by_date
+    end
   end
 
   def show
@@ -38,6 +44,15 @@ class NewbookingsController < ApplicationController
     @pet = @newbooking.pet
     @newbooking.destroy
     redirect_to newbookings_index_path
+  end
+
+  def sort_by_date
+    @newbooking = Newbooking.all.includes(:pet, :service).order(:date)
+  end
+
+  def sort_by_name
+    @newbooking = Newbooking.all.includes(:pet,
+                                          :service).joins(:pet).merge(Pet.joins(:customer).order('customers.name'))
   end
 
   private
