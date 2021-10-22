@@ -14,12 +14,23 @@
 <a href = "<%= services_path %>" class = "btn btn-info" role = "button">View Services</a>
 </div>
 </div>
+
 </body>
 <div class = "col-sm-6">
 <h1>Stats</h1>
 <h3>Total Outstanding Money Owed: £<%= @totalmoney %></h3>
 
 <h3>Total Number Of Bookings: <%= @totalbookings %></h3>
+</div>
+</div>
+<div class = "row">
+<div class = "col-sm-4">
+<h2>Make Quick Booking:</h2>
+<%= form_with(url: homepage_index_path, method: :get, local: true) do |form| %>
+    <%= form.collection_select(:pet_id, Pet.all, :id, :name, prompt: 'Select Pet') %>
+    <%= form.submit "Make booking" %>
+<% end%>
+</div>
 </div>
 </div>
 </html>

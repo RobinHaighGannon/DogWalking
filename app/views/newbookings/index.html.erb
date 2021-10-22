@@ -4,6 +4,10 @@
     <h1>Bookings</h1>
   </head>
 <%= will_paginate @newbooking , renderer: WillPaginate::ActionView::LinkRenderer %>
+<%= form_with(url: newbookings_index_path, method: :get, local: true) do |form| %>
+<%= form.select :order, ["Customer Name", "Date"] %>
+    <%= form.submit "Sort" %>
+<%end%>
 <table class = "table table-striped">
 <tr>
     <th>Customer</th>
@@ -15,7 +19,6 @@
     <th>Price</th>
     <th colspan = "2"></th>
     </tr>
-
   <% @newbooking.each do |newbooking| %>
   <tr>
   <td><%= newbooking.pet.customer.name %></td>
