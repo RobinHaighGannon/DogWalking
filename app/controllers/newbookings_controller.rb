@@ -11,6 +11,7 @@ class NewbookingsController < ApplicationController
     when 'Date'
       sort_by_date
     end
+    filter
     @newbooking = @newbooking.paginate(page: params[:page], per_page: 20)
   end
 
@@ -65,5 +66,16 @@ class NewbookingsController < ApplicationController
   def find_customer_and_pet
     @customer = Customer.find(params[:customer_id])
     @pet = Pet.find(params[:pet_id])
+  end
+
+  def filter
+    case params[:filter]
+    when 'Settled'
+      @newbooking = @newbooking.where(paid: true, complete: true)
+    when 'Due'
+      @newbooking = @newbooking.where(paid: false, complete: true)
+    when 'Incomplete'
+      @newbooking = @newbooking.where(complete: false)
+    end
   end
 end
