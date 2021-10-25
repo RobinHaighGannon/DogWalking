@@ -1,8 +1,5 @@
-<head>
-<h1>Make a Booking For: <%= @pet.name %></h1>
-</head>
-<body>
-<%= form_for [@customer, @pet, @newbooking] do |form| %>
+<h1>Edit a Booking:</h1>
+<%= form_for @newbooking do |form| %>
 <label for="date">Date:</label>
 <%= form.date_field :date %>
 <label for="time">Time:</label>
@@ -17,10 +14,7 @@
 <%= form.check_box(:complete) %>
 <%= label_tag(:complete, "This walk has been completed") %></p>
 <%= form.submit %>
-</p>
 <% end %>
 <p>
-<a href = "<%= customer_pet_path(@pet.customer, @pet) %>" class = "btn btn-default">Back</a>
+<a href = "<%= newbookings_index_path %>" class = "btn btn-default">Back</a>
 </p>
-
-</body>

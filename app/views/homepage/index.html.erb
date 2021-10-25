@@ -1,26 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
     <h1>Homepage</h1>
   </head>
 <body>
-<div class = "row">
-<div class = "col-sm-6">
+<div class = 'row'>
+<div class = 'col-sm-6'>
 <p>To add new customers, pets or bookings, click on customers</p>
-<div class = "btn-group">
-<a href = "<%= customers_index_path %>" class = "btn btn-info" role = "button">Customers</a>  
-<a href = "<%= pets_index_path %>" class = "btn btn-info" role = "button">View Pets</a>
-<a href = "<%= newbookings_index_path %>" class = "btn btn-info" role = "button">View Bookings</a>
-<a href = "<%= services_path %>" class = "btn btn-info" role = "button">View Services</a>
+<div class = 'btn-group'>
+<a href = '<%= customers_index_path %>' class = 'btn btn-info' role = 'button'>Customers</a>  
+<a href = '<%= pets_index_path %>' class = 'btn btn-info' role = 'button'>View Pets</a>
+<a href = '<%= newbookings_index_path %>' class = 'btn btn-info' role = 'button'>View Bookings</a>
+<a href = '<%= services_path %>' class = 'btn btn-info' role = 'button'>View Services</a>
 </div>
+<h2>Today's Bookings</h2>
+<table class = "table table-striped">
+<tr>
+    <th>Customer</th>
+    <th>Pet</th>
+    <th>Address</th>
+    <th>Time</th>
+    <th>Service</th>
+    <th>Price</th>
+    <th colspan = "2"></th>
+    </tr>
+
+  <% @todaysbookings.each do |newbooking| %>
+  <tr>
+  <td><%= newbooking.pet.customer.name %></td>
+  <td><%= newbooking.pet.name %></td>
+  <td><%= newbooking.pet.customer.address %></td>
+  <td><%= newbooking.time.strftime("%k:%M") %></td>
+  <td><%= newbooking.service.name %></td>
+  <td><%= number_to_currency(newbooking.service.price, :unit => "£") %></td>
+  </tr>
+  <%end%>
+  </table>
 </div>
 
 </body>
-<div class = "col-sm-6">
-<h1>Stats</h1>
-<h3>Total Outstanding Money Owed: £<%= @totalmoney %></h3>
-
+<div class = 'col-sm-6'>
+<h1>Statistics:</h1>
 <h3>Total Number Of Bookings: <%= @totalbookings %></h3>
+<h2>Value Of:</h2>
+<h3>Incomplete bookings: <%= number_to_currency(@money_totals[:incomplete], unit: '£') %></h3>
+<h3>Due Payments: <%= number_to_currency(@money_totals[:due], unit: '£') %></h3>
+<h3>Settled Payments: <%= number_to_currency(@money_totals[:settled], unit: '£') %></h3>
+
 </div>
 </div>
 <div class = "row">

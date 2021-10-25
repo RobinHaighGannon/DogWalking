@@ -4,4 +4,12 @@
 class Newbooking < ActiveRecord::Base
   belongs_to :pet
   belongs_to :service
+
+  def payment_due?
+    complete? & !paid?
+  end
+
+  def settled?
+    complete? & paid?
+  end
 end
