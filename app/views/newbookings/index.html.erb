@@ -3,6 +3,7 @@
   <head>
     <h1>Bookings</h1>
   </head>
+<%= will_paginate @newbooking , renderer: WillPaginate::ActionView::LinkRenderer %>
 <%= form_with(url: newbookings_index_path, method: :get, local: true) do |form| %>
 <%= form.select :order, ["Customer Name", "Date"] %>
     <%= form.submit "Sort" %>
