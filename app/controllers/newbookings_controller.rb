@@ -24,10 +24,8 @@ class NewbookingsController < ApplicationController
   end
 
   def create
-    service = Service.find(params[:service_id])
-    @newbooking.price = service.price
-    @newbooking.service_name = service.name
     @newbooking = @pet.newbookings.create(newbooking_params)
+    service_attributes
     redirect_to customer_pet_path(@customer, @pet)
   end
 
@@ -37,9 +35,7 @@ class NewbookingsController < ApplicationController
 
   def update
     @newbooking = Newbooking.find(params[:id])
-    service = Service.find(params[:service_id])
-    @newbooking.price = service.price
-    @newbooking.service_name = service.name
+    service_attributes if @newbooking.date > Date.today
     if @newbooking.update(newbooking_params)
       redirect_to newbookings_index_path
     else
@@ -65,7 +61,7 @@ class NewbookingsController < ApplicationController
   private
 
   def newbooking_params
-    params.require(:newbooking).permit(:date, :time, :paid, :complete, :service_name, :price)
+    params.require(:newbooking).permit(:date, :time, :paid, :complete, :service_id)
   end
 
   def find_customer_and_pet
@@ -82,5 +78,11 @@ class NewbookingsController < ApplicationController
     when 'Incomplete'
       @newbooking = @newbooking.where(complete: false)
     end
+  end
+
+  def service_attributes
+    @newbooking.service_name = @newbooking.service.name
+    @newbooking.price = @newbooking.service.price
+    @newbooking.save
   end
 end

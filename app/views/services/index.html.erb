@@ -12,7 +12,7 @@
   <% @service.each do |service| %>
   <tr>
   <td><%= service.name %></td>
-  <td><%= service.price %></td>
+  <td><%= number_to_currency(service.price, :unit => "£") %></td>
   <td><a href = "<%= edit_service_path(service) %>" class = "btn btn-warning">Edit</a></td>
   </tr>
   <%end%>
