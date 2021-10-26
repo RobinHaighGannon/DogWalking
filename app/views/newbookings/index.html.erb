@@ -5,8 +5,11 @@
   </head>
 <%= will_paginate @newbooking , renderer: WillPaginate::ActionView::LinkRenderer %>
 <%= form_with(url: newbookings_index_path, method: :get, local: true) do |form| %>
+<%= form.label :order, "Sort by:" %>
 <%= form.select :order, ["Customer Name", "Date"] %>
-    <%= form.submit "Sort" %>
+<%= form.label :filter, "Filter:" %>
+<%= form.select :filter, ["No Filter", "Settled", "Due", "Incomplete"] %>
+    <%= form.submit "Apply" %>
 <%end%>
 <table class = "table table-striped">
 <tr>

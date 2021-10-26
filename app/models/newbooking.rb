@@ -5,6 +5,9 @@ class Newbooking < ActiveRecord::Base
   belongs_to :pet
   belongs_to :service
 
+  scope :settled, -> { where(complete: true, paid: true) }
+  scope :due, -> { where(complete: true, paid: false) }
+
   def payment_due?
     complete? & !paid?
   end

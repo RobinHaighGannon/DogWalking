@@ -14,7 +14,7 @@
 
 <div class = "col-sm-4">
 <h2>Bookings:</h2>
-<%= render @pet.newbookings %>
+<%= render @pet.newbookings.where(complete: false) %>
 </div>
 
 
