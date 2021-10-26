@@ -13,16 +13,23 @@ class TransferServiceDataInNewbooking < ActiveRecord::Migration[6.1]
   end
 
   def change
-    newbooking = Newbooking20211026082229.all.includes(:pet, :service)
-    begin
-      newbooking.each do |booking|
-        booking.service_name = booking.service.name
-        booking.price = booking.service.price
-        booking.save
+    newbooking = Newbooking20211026082229.all.includes(:service)
+    reversible do |dir|
+      dir.up do
+        newbooking.each do |booking|
+          service = booking.service
+          booking.update(service_name: service.name, price: service.price)
+        rescue StandardError => e
+          puts service.name
+          raise e
+        end
       end
-    rescue StandardError => e
-      puts booking.service.name
-      raise e
+
+      dir.down do
+        newbooking.each do |booking|
+          booking.update(service_name: nil, price: nil)
+        end
+      end
     end
   end
 end

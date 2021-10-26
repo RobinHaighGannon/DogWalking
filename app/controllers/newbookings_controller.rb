@@ -25,7 +25,7 @@ class NewbookingsController < ApplicationController
 
   def create
     @newbooking = @pet.newbookings.create(newbooking_params)
-    service_attributes
+    copy_service_attributes_into_table
     redirect_to customer_pet_path(@customer, @pet)
   end
 
@@ -35,7 +35,7 @@ class NewbookingsController < ApplicationController
 
   def update
     @newbooking = Newbooking.find(params[:id])
-    service_attributes if @newbooking.date > Date.today
+    copy_service_attributes_into_table if @newbooking.date > Date.today
     if @newbooking.update(newbooking_params)
       redirect_to newbookings_index_path
     else
@@ -80,7 +80,7 @@ class NewbookingsController < ApplicationController
     end
   end
 
-  def service_attributes
+  def copy_service_attributes_into_table
     @newbooking.service_name = @newbooking.service.name
     @newbooking.price = @newbooking.service.price
     @newbooking.save
