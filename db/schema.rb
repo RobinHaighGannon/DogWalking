@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/BlockLength
 ActiveRecord::Schema.define(version: 20_211_026_082_229) do
   create_table 'bookings', force: :cascade do |t|
     t.string 'date'
@@ -57,4 +57,4 @@ ActiveRecord::Schema.define(version: 20_211_026_082_229) do
   add_foreign_key 'newbookings', 'services'
   add_foreign_key 'pets', 'customers'
 end
-# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/BlockLength
