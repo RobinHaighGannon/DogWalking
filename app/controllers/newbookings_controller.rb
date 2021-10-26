@@ -71,9 +71,9 @@ class NewbookingsController < ApplicationController
   def filter
     case params[:filter]
     when 'Settled'
-      @newbooking = @newbooking.where(paid: true, complete: true)
+      @newbooking = @newbooking.settled
     when 'Due'
-      @newbooking = @newbooking.where(paid: false, complete: true)
+      @newbooking = @newbooking.due
     when 'Incomplete'
       @newbooking = @newbooking.where(complete: false)
     end
