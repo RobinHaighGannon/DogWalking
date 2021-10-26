@@ -27,7 +27,7 @@
   <td><a href= "<%= edit_customer_path(customer) %>" class = "btn btn-warning">Edit</a></td>
   <td><%= link_to 'Destroy', customer_path(customer),
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                </td>
   </tr>
   <%end%>
