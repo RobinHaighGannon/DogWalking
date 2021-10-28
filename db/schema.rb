@@ -12,17 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# rubocop:disable Metrics/BlockLength
-ActiveRecord::Schema.define(version: 20_211_019_122_810) do
-  create_table 'bookings', force: :cascade do |t|
-    t.string 'date'
-    t.string 'time'
-    t.integer 'pet_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['pet_id'], name: 'index_bookings_on_pet_id'
-  end
-
+ActiveRecord::Schema.define(version: 20_211_028_123_809) do
   create_table 'customers', force: :cascade do |t|
     t.string 'name'
     t.string 'phone'
@@ -33,8 +23,18 @@ ActiveRecord::Schema.define(version: 20_211_019_122_810) do
     t.string 'postcode'
   end
 
-  # Could not dump table "newbookings" because of following StandardError
-  # Unknown type '' for column 'pet'
+  create_table 'newbookings', force: :cascade do |t|
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'pet_id'
+    t.integer 'service_id'
+    t.date 'date'
+    t.time 'time'
+    t.boolean 'paid'
+    t.boolean 'complete'
+    t.string 'service_name'
+    t.float 'price'
+  end
 
   create_table 'pets', force: :cascade do |t|
     t.string 'name'
@@ -52,10 +52,14 @@ ActiveRecord::Schema.define(version: 20_211_019_122_810) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key 'bookings', 'pets'
+  create_table 'users', force: :cascade do |t|
+    t.string 'username'
+    t.string 'password'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
   add_foreign_key 'newbookings', 'pets'
   add_foreign_key 'newbookings', 'services'
   add_foreign_key 'pets', 'customers'
 end
-
-# rubocop:enable Metrics/BlockLength
