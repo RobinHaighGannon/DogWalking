@@ -6,6 +6,9 @@
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+    <% @customer.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </p>
  
   <p>
@@ -28,4 +31,5 @@
     <%= f.submit %>
   </p>
   <% end %>
+
   </html>
