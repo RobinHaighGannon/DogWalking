@@ -14,18 +14,30 @@
   <p>
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
+    <% @customer.errors.full_messages_for(:phone).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </p>
   <p>
     <%= f.label :email %><br>
     <%= f.text_field :email %>
+    <% @customer.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </p>
  <p>
     <%= f.label :address %><br>
     <%= f.text_area :address %>
+    <% @customer.errors.full_messages_for(:address).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </p>
   <p>
     <%= f.label :postcode %><br>
     <%= f.text_field :postcode %>
+    <% @customer.errors.full_messages_for(:postcode).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </p>
   <p>
     <%= f.submit %>

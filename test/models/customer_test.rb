@@ -17,4 +17,10 @@ class CustomerTest < ActiveSupport::TestCase
     customer.name = 'Robin Haigh-Gannon'
     assert customer.save
   end
+  test 'Customer phone number should not contain letters' do
+    customer = Customer.new
+    customer.name = 'Test'
+    customer.phone = '0823746T673Y'
+    assert_not customer.save
+  end
 end
