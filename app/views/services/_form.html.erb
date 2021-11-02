@@ -2,11 +2,17 @@
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+    <% @service.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </p>
  
   <p>
     <%= f.label :price %><br>
     <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %>
+    <% @service.errors.full_messages_for(:price).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </p>
  
   <p>
