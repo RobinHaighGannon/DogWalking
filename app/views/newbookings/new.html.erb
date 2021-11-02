@@ -5,11 +5,20 @@
 <%= form_for [@customer, @pet, @newbooking] do |form| %>
 <label for="date">Date:</label>
 <%= form.date_field :date %>
+<% @newbooking.errors.full_messages_for(:date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
 <label for="time">Time:</label>
 <%= form.time_field :time %>
+<% @newbooking.errors.full_messages_for(:time).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
 <p>
 <label for="service">Service:</label>
 <%= form.collection_select(:service_id, Service.all, :id, :name, prompt: 'Select') %></p>
+<% @newbooking.errors.full_messages_for(:service_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
 <p>
 <%= form.check_box(:paid) %>
 <%= label_tag(:paid, "This booking has been paid for") %></p>

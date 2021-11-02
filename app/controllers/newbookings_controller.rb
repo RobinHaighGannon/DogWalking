@@ -25,7 +25,11 @@ class NewbookingsController < ApplicationController
 
   def create
     @newbooking = @pet.newbookings.create(newbooking_params)
-    redirect_to customer_pet_path(@customer, @pet)
+    if @newbooking.save
+      redirect_to customer_pet_path(@customer, @pet)
+    else
+      render :new
+    end
   end
 
   def edit
