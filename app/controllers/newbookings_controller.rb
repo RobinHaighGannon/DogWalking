@@ -4,7 +4,7 @@
 class NewbookingsController < ApplicationController
   before_action :find_customer_and_pet, only: %i[new create]
   def index
-    @newbooking = Newbooking.all.includes(:pet, :service)
+    @newbooking = Newbooking.all.includes(:pet)
     case params[:order]
     when 'Customer Name'
       sort_by_name
@@ -25,6 +25,7 @@ class NewbookingsController < ApplicationController
 
   def create
     @newbooking = @pet.newbookings.create(newbooking_params)
+    copy_service_attributes_into_table
     redirect_to customer_pet_path(@customer, @pet)
   end
 
@@ -34,6 +35,7 @@ class NewbookingsController < ApplicationController
 
   def update
     @newbooking = Newbooking.find(params[:id])
+    copy_service_attributes_into_table if @newbooking.date > Date.today
     if @newbooking.update(newbooking_params)
       redirect_to newbookings_index_path
     else
@@ -49,18 +51,17 @@ class NewbookingsController < ApplicationController
   end
 
   def sort_by_date
-    @newbooking = Newbooking.all.includes(:pet, :service).order(:date)
+    @newbooking = Newbooking.all.includes(:pet).order(:date)
   end
 
   def sort_by_name
-    @newbooking = Newbooking.all.includes(:pet,
-                                          :service).joins(:pet).merge(Pet.joins(:customer).order('customers.name'))
+    @newbooking = Newbooking.all.includes(:pet).joins(:pet).merge(Pet.joins(:customer).order('customers.name'))
   end
 
   private
 
   def newbooking_params
-    params.require(:newbooking).permit(:date, :time, :service_id, :paid, :complete)
+    params.require(:newbooking).permit(:date, :time, :paid, :complete, :service_id)
   end
 
   def find_customer_and_pet
@@ -77,5 +78,11 @@ class NewbookingsController < ApplicationController
     when 'Incomplete'
       @newbooking = @newbooking.where(complete: false)
     end
+  end
+
+  def copy_service_attributes_into_table
+    @newbooking.service_name = @newbooking.service.name
+    @newbooking.price = @newbooking.service.price
+    @newbooking.save
   end
 end

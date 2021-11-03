@@ -13,7 +13,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 # rubocop:disable Metrics/BlockLength
-ActiveRecord::Schema.define(version: 20_211_019_122_810) do
+ActiveRecord::Schema.define(version: 20_211_026_082_229) do
   create_table 'bookings', force: :cascade do |t|
     t.string 'date'
     t.string 'time'
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20_211_019_122_810) do
   end
 
   # Could not dump table "newbookings" because of following StandardError
-  # Unknown type '' for column 'pet'
+  #   Unknown type '' for column 'pet'
 
   create_table 'pets', force: :cascade do |t|
     t.string 'name'
@@ -57,5 +57,4 @@ ActiveRecord::Schema.define(version: 20_211_019_122_810) do
   add_foreign_key 'newbookings', 'services'
   add_foreign_key 'pets', 'customers'
 end
-
 # rubocop:enable Metrics/BlockLength
