@@ -12,9 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20_211_028_123_809) do
-
   create_table 'customers', force: :cascade do |t|
     t.string 'name'
     t.string 'phone'
@@ -65,4 +63,3 @@ ActiveRecord::Schema.define(version: 20_211_028_123_809) do
   add_foreign_key 'newbookings', 'services'
   add_foreign_key 'pets', 'customers'
 end
-
