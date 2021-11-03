@@ -4,7 +4,7 @@
 # rubocop:disable Metrics/MethodLength
 class AddDataToNewbookings < ActiveRecord::Migration[6.1]
   # Temporary class to hold bookings data during this migration
-  class Newbooking20211019122810
+  class Newbooking20211019122810 < ApplicationRecord
     self.table_name = 'newbookings'
 
     belongs_to :pet
