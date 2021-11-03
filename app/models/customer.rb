@@ -8,6 +8,6 @@ class Customer < ActiveRecord::Base
 
   validates_format_of :name, with: /\A\p{L}+(?:[-\s]\p{L}+)*\z/,
                              message: 'must only contain letters, spaces and hyphens'
-  validates_format_of :phone, with: /\A[0-9]*\z/,
+  validates_format_of :phone, with: /\A[0-9]+\z/,
                               message: 'must only contain numbers'
 end
