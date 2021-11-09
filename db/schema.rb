@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,56 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# rubocop:disable Metrics/BlockLength
-ActiveRecord::Schema.define(version: 20_211_026_145_034) do
-  create_table 'bookings', force: :cascade do |t|
-    t.string 'date'
-    t.string 'time'
-    t.integer 'pet_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['pet_id'], name: 'index_bookings_on_pet_id'
+ActiveRecord::Schema.define(version: 2021_11_09_101213) do
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.text "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "postcode"
   end
 
-  create_table 'customers', force: :cascade do |t|
-    t.string 'name'
-    t.string 'phone'
-    t.string 'email'
-    t.text 'address'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'postcode'
+  create_table "newbookings", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "pet_id"
+    t.integer "service_id"
+    t.date "date"
+    t.time "time"
+    t.boolean "paid"
+    t.boolean "complete"
+    t.string "service_name"
+    t.float "price"
   end
 
-  # Could not dump table "newbookings" because of following StandardError
-  #   Unknown type '' for column 'pet'
-
-  create_table 'pets', force: :cascade do |t|
-    t.string 'name'
-    t.string 'breed'
-    t.integer 'customer_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['customer_id'], name: 'index_pets_on_customer_id'
+  create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.integer "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_pets_on_customer_id"
   end
 
-  create_table 'services', force: :cascade do |t|
-    t.string 'name'
-    t.float 'price'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username'
-    t.string 'password'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key 'bookings', 'pets'
-  add_foreign_key 'newbookings', 'pets'
-  add_foreign_key 'newbookings', 'services'
-  add_foreign_key 'pets', 'customers'
+  add_foreign_key "newbookings", "pets"
+  add_foreign_key "newbookings", "services"
+  add_foreign_key "pets", "customers"
 end
-# rubocop:enable Metrics/BlockLength

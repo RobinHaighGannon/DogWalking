@@ -1,6 +1,7 @@
 # frozen_string_literal: false
 
 Rails.application.routes.draw do
+  devise_for :users
   get 'newbookings/index'
   get 'customers/index'
   get 'pets/index'
