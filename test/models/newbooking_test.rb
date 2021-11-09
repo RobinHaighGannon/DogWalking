@@ -4,34 +4,22 @@ require 'test_helper'
 
 class NewbookingTest < ActiveSupport::TestCase
   test 'Control' do
-    pet = Pet.all[0]
-    booking = create_test_booking(pet)
+    booking = create_test_booking
     assert booking.save
   end
   test 'Booking should not be saved without date' do
-    pet = Pet.all[0]
-    booking = create_test_booking(pet)
-    booking.date = nil
+    booking = create_test_booking(date: nil)
     assert_not booking.save
   end
   test 'Booking should not be saved without time' do
-    pet = Pet.all[0]
-    booking = create_test_booking(pet)
-    booking.time = nil
+    booking = create_test_booking(time: nil)
     assert_not booking.save
   end
   test 'Booking should not be saved without service' do
-    pet = Pet.all[0]
-    booking = create_test_booking(pet)
-    booking.service = nil
+    booking = create_test_booking(service: nil)
     assert_not booking.save
   end
-  def create_test_booking(pet)
-    booking = Newbooking.new
-    booking.pet = pet
-    booking.time = Time.now
-    booking.date = Date.today
-    booking.service = Service.all[0]
-    booking
+  def create_test_booking(pet: Pet.all[0], time: Time.now, date: Date.today, service: Service.all[0])
+    Newbooking.new(pet: pet, time: time, date: date, service: service)
   end
 end

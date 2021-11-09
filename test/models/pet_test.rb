@@ -27,13 +27,7 @@ class PetTest < ActiveSupport::TestCase
     pet.name = 'Rover Haigh-Gannon'
     assert pet.save
   end
-  def create_test_customer
-    customer = Customer.new
-    customer.name = 'Test Data'
-    customer.phone = '547839484'
-    customer.email = 'testdata@gmail.com'
-    customer.address = '3 Example Road'
-    customer.postcode = 'HG6DFR4'
-    customer
+  def create_test_customer(name: 'Test', phone: '54783', email: 'test@gmail.com', address: '3 Eg Rd', postcode: 'HG6R4')
+    Customer.new(name: name, phone: phone, email: email, address: address, postcode: postcode)
   end
 end
