@@ -12,8 +12,11 @@
 </div>
 <div class = "col-sm-4">
 <%= form_with(url: newbookings_index_path, method: :get, local: true) do |form| %>
+<%= form.label :order, "Sort by:" %>
 <%= form.select :order, ["Customer Name", "Date"] %>
-    <%= form.submit "Sort" %>
+<%= form.label :filter, "Filter:" %>
+<%= form.select :filter, ["No Filter", "Settled", "Due", "Incomplete"] %>
+    <%= form.submit "Apply" %>
 <%end%>
 </div>
 </div>
@@ -37,8 +40,8 @@
   <td><%= newbooking.pet.customer.address %></td>
   <td><%= newbooking.date %></td>
   <td><%= newbooking.time.strftime("%k:%M") %></td>
-  <td><%= newbooking.service.name %></td>
-  <td><%= number_to_currency(newbooking.service.price, :unit => "£") %></td>
+  <td><%= newbooking.service_name %></td>
+  <td><%= number_to_currency(newbooking.price, :unit => "£") %></td>
   <td><%= newbooking.paid %></td>
   <td><%= newbooking.complete %></td>
   <td><%= link_to 'Destroy', newbooking_path(newbooking),
