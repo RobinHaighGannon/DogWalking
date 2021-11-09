@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Adding encrypted passwords to users using devise gem
 class AddDeviseToUsers < ActiveRecord::Migration[6.1]
   def self.up
     change_table :users do |t|
