@@ -7,9 +7,10 @@
   <strong>Breed:</strong>
   <%= pet.breed %>
 </p>
- <p>
- <%= link_to 'Bookings', customer_pet_path(pet.customer, pet) %> |
+ <div class = "btn-group">
+ <%= link_to 'Bookings', customer_pet_path(pet.customer, pet), class: "btn btn-default" %>
   <%= link_to 'Delete Pet', [pet.customer, pet],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+               data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+</div>

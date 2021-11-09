@@ -14,7 +14,7 @@
 <a href = '<%= services_path %>' class = 'btn btn-info' role = 'button'>View Services</a>
 </div>
 <h2>Today's Bookings</h2>
-<table class = "table table-striped">
+<table class = 'table table-striped'>
 <tr>
     <th>Customer</th>
     <th>Pet</th>
@@ -22,7 +22,7 @@
     <th>Time</th>
     <th>Service</th>
     <th>Price</th>
-    <th colspan = "2"></th>
+    <th colspan = '2'></th>
     </tr>
 
   <% @todaysbookings.each do |newbooking| %>
@@ -30,9 +30,9 @@
   <td><%= newbooking.pet.customer.name %></td>
   <td><%= newbooking.pet.name %></td>
   <td><%= newbooking.pet.customer.address %></td>
-  <td><%= newbooking.time.strftime("%k:%M") %></td>
+  <td><%= newbooking.time.strftime('%k:%M') %></td>
   <td><%= newbooking.service_name %></td>
-  <td><%= number_to_currency(newbooking.price, :unit => "£") %></td>
+  <td><%= number_to_currency(newbooking.price, :unit => '£') %></td>
   </tr>
   <%end%>
   </table>
@@ -49,13 +49,23 @@
 
 </div>
 </div>
-<div class = "row">
-<div class = "col-sm-4">
+<div class = 'row'>
+<div class = 'col-sm-4'>
+<p>
 <h2>Make Quick Booking:</h2>
 <%= form_with(url: homepage_index_path, method: :get, local: true) do |form| %>
     <%= form.collection_select(:pet_id, Pet.all, :id, :name, prompt: 'Select Pet') %>
-    <%= form.submit "Make booking" %>
-<% end%>
+    <%= form.submit 'Make booking' %>
+<% end %>
+</p>
+</div>
+</div>
+<div class = 'row'>
+<div class = 'col-sm-4'>
+<p>
+<a href = '<%= welcome_index_path %>' class = 'btn btn-default' role = 'button'>Log Out</a>
+</p>
+</div>
 </div>
 </div>
 </div>

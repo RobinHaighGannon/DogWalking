@@ -3,7 +3,14 @@
   <head>
     <h1>Bookings</h1>
   </head>
+  <div class = "row">
+  <div class = "col-sm-4">
+  <a href = "<%= homepage_index_path %>" class = "btn btn-default" role = "button">Homepage</a>
+  </div>
+  <div class = "col-sm-4">
 <%= will_paginate @newbooking , renderer: WillPaginate::ActionView::LinkRenderer %>
+</div>
+<div class = "col-sm-4">
 <%= form_with(url: newbookings_index_path, method: :get, local: true) do |form| %>
 <%= form.label :order, "Sort by:" %>
 <%= form.select :order, ["Customer Name", "Date"] %>
@@ -11,6 +18,8 @@
 <%= form.select :filter, ["No Filter", "Settled", "Due", "Incomplete"] %>
     <%= form.submit "Apply" %>
 <%end%>
+</div>
+</div>
 <table class = "table table-striped">
 <tr>
     <th>Customer</th>
@@ -37,11 +46,18 @@
   <td><%= newbooking.complete %></td>
   <td><%= link_to 'Destroy', newbooking_path(newbooking),
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                </td>
   <td><a href= "<%= edit_newbooking_path(newbooking) %>" class = "btn btn-warning">Edit</a></td>
   </tr>
   <%end%>
   </table>
+  <div class = "row">
+  <div class = "col-sm-4">
   <a href = "<%= homepage_index_path %>" class = "btn btn-default" role = "button">Homepage</a>
+  </div>
+  <div class = "col-sm-4">
+<%= will_paginate @newbooking , renderer: WillPaginate::ActionView::LinkRenderer %>
+</div>
+</div>
   </html>

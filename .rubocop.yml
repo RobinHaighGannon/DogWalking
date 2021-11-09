@@ -1,10 +1,7 @@
 AllCops:
   NewCops: enable
 
-Metrics:
   Exclude:
     - bin/*
-
-Layout:
-  Exclude:
-    - bin/*
+    - config/initializers/devise.rb
+    - db/schema.rb
